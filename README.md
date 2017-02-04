@@ -1,7 +1,7 @@
 # ZMQ JSON-RPC Client
 
-JSON-RPC 2.0 client implementation using a ZeroMQ as transport mechanism. More
-precisely a `dealer` socket is used for the client, according to the [asynchronous clients / servers pattern](http://zguide.zeromq.org/page:all#The-Asynchronous-Client-Server-Pattern).
+JSON-RPC 2.0 client implementation using a ZeroMQ socket as transport mechanism. 
+More precisely a `dealer` socket is used for the client, in line with the [asynchronous clients / servers pattern](http://zguide.zeromq.org/page:all#The-Asynchronous-Client-Server-Pattern)
 of ZeroMQ.
 
 ## Installation
@@ -26,25 +26,25 @@ The following options can be passed to the factory function.
 
 ##### nextId
 
-Function that is called each time a new request is created. Defaults to a build 
-in incrementer starting at `1`.
+Function that is called each time a new request is created. Defaults to a 
+built-in incrementer starting at `1`.
 
 ##### timeout
 
-Number of milliseconds a RPC request will wait until returning a timeout error.
-Defaults to 30 seconds.
+The number of milliseconds the client will wait for a reply when sending a 
+request, until returning a timeout error. Defaults to `30000` (30 seconds).
 
 ##### socketId
 
-Identity that will be used for the underlaying ZeroMQ socket. Defaults to random
-five bytes.
+Identity that will be used for the underlaying ZeroMQ socket. Defaults to five 
+random bytes.
 
 ### client.emit(method, params, callback)
 
 Sends a JSON-RPC request or notification. Params and callback are optional. A 
 notification is sent if callback is omitted. A request that expetct a reply
 will be sent if passing a callback. The callback will receive an error and a 
-result argument.
+result as arguments.
 
 ### client.socket
 
@@ -73,7 +73,7 @@ client.emit('subtract', {"subtrahend": 23, "minuend": 42}, function(err, result)
 
 ## Test
 
-Run unit tests;
+Run unit tests
 
 `$ npm test`
 
