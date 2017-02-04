@@ -4,7 +4,7 @@ JSON-RPC 2.0 client implementation using a ZeroMQ socket as transport mechanism.
 More precisely a `dealer` socket is used for the client, in line with the [asynchronous clients / servers pattern](http://zguide.zeromq.org/page:all#The-Asynchronous-Client-Server-Pattern)
 of ZeroMQ.
 
-For corresponding server implementation, see [zmq-json-rpc-server](https://github.com/claudijo/zmq-json-rpc-server)
+For corresponding server implementation, see [zmq-json-rpc-server](https://github.com/claudijo/zmq-json-rpc-server).
 
 ## Installation
 
@@ -24,22 +24,24 @@ This module exports a factory faction that accepts a ZeroMQ endpoint, eg.
 
 #### Options
 
-The following options can be passed to the factory function.
+Options can be passed to the factory function as an object, specified with the 
+following keys and values.
+
 
 ##### nextId
 
-Function that is called each time a new request is created. Defaults to a 
+Value: Function that is called each time a new request is created. Defaults to a 
 built-in incrementer starting at `1`.
 
 ##### timeout
 
-The number of milliseconds the client will wait for a reply when sending a 
-request, until returning a timeout error. Defaults to `30000` (30 seconds).
+Value: The number of milliseconds the client will wait for a reply when sending 
+a request, until returning a timeout error. Defaults to `30000` (30 seconds).
 
 ##### socketId
 
-Identity that will be used for the underlaying ZeroMQ socket. Defaults to five 
-random bytes.
+Value: Identity that will be used for the underlaying ZeroMQ socket. Defaults to 
+five random bytes.
 
 ### client.emit(method, params, callback)
 
