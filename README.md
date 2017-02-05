@@ -24,7 +24,7 @@ This module exports a factory faction that accepts a ZeroMQ endpoint, eg.
 
 #### Options
 
-Options can be passed to the factory function as an object, specified with the 
+Options can be passed to the factory function as an object, specified by the 
 following keys and values.
 
 
@@ -73,7 +73,7 @@ client.emit('subtract', {"subtrahend": 23, "minuend": 42}, function(err, result)
 
 ## Test
 
-Run unit tests
+Run unit tests:
 
 `$ npm test`
 
