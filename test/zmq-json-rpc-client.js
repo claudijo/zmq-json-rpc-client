@@ -12,6 +12,12 @@ describe('ZMQ JSON-RPC Client', function() {
     this.fakeServer.close();
   });
 
+  it('should expose underlying zmq socket', function() {
+    var rpc = zmqJsonRpcClient('ipc://some-endpoint');
+
+    assert(rpc.socket.constructor === zmq.Socket);
+  });
+
   it('should emit JSON-RPC notification to server with specified endpoint', function(done) {
     var rpc = zmqJsonRpcClient('ipc://some-endpoint');
 
@@ -22,12 +28,6 @@ describe('ZMQ JSON-RPC Client', function() {
       assert(message.method === 'foo');
       done();
     });
-  });
-
-  it('should expose underlaying zmq socket', function() {
-    var rpc = zmqJsonRpcClient('ipc://some-endpoint');
-
-    assert(rpc.socket.constructor === zmq.Socket);
   });
 
   it('should accept a `nextId` option', function(done) {
