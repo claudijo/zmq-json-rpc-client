@@ -14,10 +14,10 @@ npm install zmq-json-rpc-client
 
 ## Usage
 
-Create a JSON RPC client wiht a ZeroMQ endpoint and emit requests or 
+Create a JSON RPC client with a ZeroMQ endpoint and emit requests or 
 notifications.
 
-### zmqJsonRpcClient(endpoint, options)
+### client = zmqJsonRpcClient(endpoint, options)
 
 This module exports a factory faction that accepts a ZeroMQ endpoint, eg. 
 `'tcp:127.0.0.1:3030'` and options. 
@@ -76,6 +76,10 @@ client.emit('subtract', {"subtrahend": 23, "minuend": 42}, function(err, result)
 Run unit tests:
 
 `$ npm test`
+
+## License
+
+MIT
 
 
 
